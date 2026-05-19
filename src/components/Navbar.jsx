@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "Prebuild", href: "#prebuild" },
-  { label: "Accessories", href: "#accessories" },
-  { label: "About", href: "#about" },
-  { label: "My Configurations", href: "#configurations" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Prebuild", to: "/prebuild" },
+  { label: "Accessories", to: "/#accessories" },
+  { label: "About", to: "/#about" },
+  { label: "My Configurations", to: "/#configurations" },
+  { label: "Gallery", to: "/#gallery" },
 ];
 
 export default function Navbar() {
@@ -14,24 +15,24 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md text-white shadow-xl shadow-slate-950/20">
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-xl font-bold text-white shadow-lg shadow-orange-500/20">
             N
           </div>
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white">NUKEPC</p>
           </div>
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-6 rounded-full border border-white/10 bg-white/5 px-4 py-3 shadow-inner shadow-black/10">
-          {navLinks.map((link, index) => (
-            <a
+          {navLinks.map((link) => (
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.to}
               className="text-sm font-medium text-slate-100 transition hover:text-white"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -74,14 +75,14 @@ export default function Navbar() {
         <div className="border-t border-slate-800 bg-slate-950 px-4 pb-6 pt-4 md:hidden">
           <div className="space-y-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="block rounded-xl px-3 py-3 text-base font-medium text-slate-200 transition hover:bg-slate-900 hover:text-white"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="mt-4 flex flex-col gap-3">
