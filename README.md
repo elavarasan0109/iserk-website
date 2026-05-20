@@ -1,3 +1,3 @@
-# iserk-website
+﻿# iserk-website
 
-React + Vite template.
+React + Vite application for ISERK, built with Tailwind CSS and React Router.

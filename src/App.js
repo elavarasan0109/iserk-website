@@ -1,4 +1,4 @@
-import Prebuild from "./Pages/Prebuild";
+import Prebuild from "./pages/Prebuild";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
