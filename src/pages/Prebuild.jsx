@@ -1,4 +1,5 @@
 ﻿import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import Banner from "../components/Banner";
 import ProductGrid from "../components/ProductGrid";
@@ -61,7 +62,9 @@ const Prebuild = () => {
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm text-slate-500">Home / Prebuild</p>
+            <p className="text-sm text-slate-500">
+              <Link to="/" className="font-medium text-slate-500 transition hover:text-slate-900">Home</Link> / Prebuild
+            </p>
             <h1 className="mt-3 text-5xl font-bold tracking-[-0.04em] text-slate-950">Prebuild</h1>
           </div>
 

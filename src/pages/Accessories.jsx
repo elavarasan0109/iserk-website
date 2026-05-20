@@ -112,8 +112,7 @@ export default function Accessories() {
                   value={search}
                   onChange={(e) => handleSearch(e.target.value)}
                   placeholder="Search here..."
-                  className="search-input"
-                  style={{ minWidth: 260 }}
+                  className="w-full min-w-[260px] rounded-full border border-slate-200 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-400 focus:ring-4 focus:ring-orange-100"
                 />
               </div>
 

@@ -1,5 +1,6 @@
 // src/components/ProductCard.jsx
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ProductCard({ product }) {
   const [imgError, setImgError] = useState(false)
@@ -8,7 +9,7 @@ export default function ProductCard({ product }) {
     'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80'
 
   return (
-    <div className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_-40px_rgba(15,23,42,0.35)] transition hover:-translate-y-1">
+    <Link to={`/prebuild/${product.id}`} className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_-40px_rgba(15,23,42,0.35)] transition hover:-translate-y-1">
       <div className="p-5">
         <div className="mb-3 flex items-center justify-between gap-3">
           <div>
@@ -36,6 +37,6 @@ export default function ProductCard({ product }) {
         <p className="text-sm text-slate-500">Starts</p>
         <p className="mt-2 text-2xl font-bold text-slate-950">₹{product.price.toLocaleString('en-IN')}</p>
       </div>
-    </div>
+    </Link>
   )
 }

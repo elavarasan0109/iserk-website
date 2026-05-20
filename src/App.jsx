@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import Home from "./components/home";
-
-function App() {
-  return <Home />;
-}
-
-export default App;
-=======
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home.jsx'
 import Prebuild from './pages/Prebuild.jsx'
 import Accessories from './pages/Accessories.jsx'
-import ProductDetails from './pages/ProductDetails.jsx'
+import PrebuildProductDetails from './pages/PrebuildProductDetails.jsx'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -25,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/prebuild" element={<Prebuild />} />
           <Route path="/accessories" element={<Accessories />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/product/:id" element={<PrebuildProductDetails />} />
         </Routes>
       </main>
 
@@ -35,4 +26,3 @@ function App() {
 }
 
 export default App
->>>>>>> origin/izas
