@@ -11,6 +11,7 @@ import PrebuildDetails from './pages/PrebuildDetails.jsx'
 import About from './pages/About.jsx'
 import Cart from './pages/Cart.jsx'
 import Payment from './pages/Payment.jsx'
+import Faq from './pages/Faq'
 
 import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
@@ -27,12 +28,16 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/prebuild" element={<Prebuild />} />
-            <Route path="/prebuild-product/:id" element={<PrebuildDetails />} />
+            <Route
+              path="/prebuild-product/:id"
+              element={<PrebuildDetails />}
+            />
 
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/product/:id" element={<ProductDetails />} />
 
             <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq />} />
 
             <Route path="/cart" element={<Cart />} />
             <Route path="/cart/payment" element={<Payment />} />

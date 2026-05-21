@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import hero from "../assets/person.png.png";
@@ -91,6 +92,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
    const [processOpen, setProcessOpen] = useState(null);
   const [faqOpen, setFaqOpen] = useState(null);
+  const navigate = useNavigate();
   /* AUTO SLIDE */
 useEffect(() => {
 
@@ -532,7 +534,7 @@ useEffect(() => {
         {/* CARDS */}
 <div
   ref={slider}
-  className="flex gap-7 overflow-x-auto scroll-smooth scrollbar-hide px-2 py-4"
+ className="flex gap-7 overflow-x-auto scroll-smooth scrollbar-hide px-2 py-4 no-scrollbar"
 >
 
   {/* CARD 1 */}
@@ -728,21 +730,27 @@ useEffect(() => {
 
         <div className="h-[5px] w-12 rounded-full bg-white" />
       </div>
+{/* VIEW MORE BUTTON */}
+<div className="mt-12 flex justify-center">
 
-      {/* VIEW MORE BUTTON */}
-      <div className="mt-12 flex justify-center">
+  <button
+    onClick={() => navigate("/prebuild")}
+    className="flex items-center gap-5 rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-10 py-4 text-[15px] font-semibold text-white shadow-[0_0_45px_rgba(255,98,0,0.8)] transition duration-300 hover:scale-105"
+  >
 
-        <button className="flex items-center gap-5 rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-10 py-4 text-[15px] font-semibold text-white shadow-[0_0_45px_rgba(255,98,0,0.8)] transition duration-300 hover:scale-105">
+    View More
 
-          View More
+    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl text-black">
+      →
+    </span>
 
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl text-black">
-            →
-          </span>
-        </button>
+  </button>
+
+</div>
+        
       </div>
     </div>
-  </div>
+  
 </section>
 
 {/* HOW IT WORKS */}
@@ -877,8 +885,18 @@ useEffect(() => {
               {index === 4 && (
                 <div className="mt-8 flex items-center justify-between gap-8">
 
-                  <button className="group flex items-center gap-4 text-lg font-semibold text-white">
+                  <button
+  onClick={() => {
+    const section = document.getElementById("builds");
 
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }}
+  className="group flex items-center gap-4 text-lg font-semibold text-white"
+>
                     Build your PC
 
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-500 transition duration-300 group-hover:rotate-45">
@@ -933,7 +951,7 @@ useEffect(() => {
       <div className="mb-5 overflow-hidden rounded-[22px] bg-[#f7f3ef]">
 
         <button
-          onClick={() => setOpen(open === 1 ? null : 1)}
+          onClick={() => setFaqOpen(faqOpen=== 1 ? null : 1)}
           className="flex w-full items-center justify-between px-7 py-7 text-left"
         >
 
@@ -942,13 +960,13 @@ useEffect(() => {
           </h3>
 
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ded5ce] text-3xl text-black">
-            {open === 1 ? "×" : "+"}
+            {faqOpen === 1 ? "×" : "+"}
           </div>
         </button>
 
         <div
           className={`grid transition-all duration-500 ${
-            open === 1
+            faqOpen === 1
               ? "grid-rows-[1fr] opacity-100 pb-7"
               : "grid-rows-[0fr] opacity-0"
           }`}
@@ -965,7 +983,7 @@ useEffect(() => {
       <div className="mb-5 overflow-hidden rounded-[22px] bg-[#f7f3ef]">
 
         <button
-          onClick={() => setOpen(open === 2 ? null : 2)}
+          onClick={() => setFaqOpen(faqOpen === 2 ? null : 2)}
           className="flex w-full items-center justify-between px-7 py-7 text-left"
         >
 
@@ -974,13 +992,13 @@ useEffect(() => {
           </h3>
 
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ded5ce] text-3xl text-black">
-            {open === 2 ? "×" : "+"}
+            {faqOpen === 2 ? "×" : "+"}
           </div>
         </button>
 
         <div
           className={`grid transition-all duration-500 ${
-            open === 2
+            faqOpen === 2
               ? "grid-rows-[1fr] opacity-100 pb-7"
               : "grid-rows-[0fr] opacity-0"
           }`}
@@ -997,7 +1015,7 @@ useEffect(() => {
       <div className="mb-5 overflow-hidden rounded-[22px] bg-[#f7f3ef]">
 
         <button
-          onClick={() => setOpen(open === 3 ? null : 3)}
+          onClick={() => setFaqOpen(faqOpen === 3 ? null : 3)}
           className="flex w-full items-center justify-between px-7 py-7 text-left"
         >
 
@@ -1006,13 +1024,13 @@ useEffect(() => {
           </h3>
 
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ded5ce] text-3xl text-black">
-            {open === 3 ? "×" : "+"}
+            {faqOpen === 3 ? "×" : "+"}
           </div>
         </button>
 
         <div
           className={`grid transition-all duration-500 ${
-            open === 3
+            faqOpen === 3
               ? "grid-rows-[1fr] opacity-100 pb-7"
               : "grid-rows-[0fr] opacity-0"
           }`}
@@ -1029,7 +1047,7 @@ useEffect(() => {
       <div className="mb-5 overflow-hidden rounded-[22px] bg-[#f7f3ef]">
 
         <button
-          onClick={() => setOpen(open === 4 ? null : 4)}
+          onClick={() => setFaqOpen(faqOpen === 4 ? null : 4)}
           className="flex w-full items-center justify-between px-7 py-7 text-left"
         >
 
@@ -1038,13 +1056,13 @@ useEffect(() => {
           </h3>
 
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ded5ce] text-3xl text-black">
-            {open === 4 ? "×" : "+"}
+            {faqOpen === 4 ? "×" : "+"}
           </div>
         </button>
 
         <div
           className={`grid transition-all duration-500 ${
-            open === 4
+            faqOpen === 4
               ? "grid-rows-[1fr] opacity-100 pb-7"
               : "grid-rows-[0fr] opacity-0"
           }`}
@@ -1061,7 +1079,7 @@ useEffect(() => {
       <div className="overflow-hidden rounded-[22px] bg-[#f7f3ef]">
 
         <button
-          onClick={() => setOpen(open === 5 ? null : 5)}
+          onClick={() => setFaqOpen(faqOpen === 5 ? null : 5)}
           className="flex w-full items-center justify-between px-7 py-7 text-left"
         >
 
@@ -1070,13 +1088,13 @@ useEffect(() => {
           </h3>
 
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ded5ce] text-3xl text-black">
-            {open === 5 ? "×" : "+"}
+            {faqOpen === 5 ? "×" : "+"}
           </div>
         </button>
 
         <div
           className={`grid transition-all duration-500 ${
-            open === 5
+            faqOpen === 5
               ? "grid-rows-[1fr] opacity-100 pb-7"
               : "grid-rows-[0fr] opacity-0"
           }`}
@@ -1090,6 +1108,19 @@ useEffect(() => {
       </div>
     </div>
   </div>
+
+  <div className="mt-12 flex justify-center">
+  <button
+    onClick={() => navigate("/faq")}
+    className="flex items-center gap-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 text-white transition hover:scale-105"
+  >
+    View More FAQ
+
+    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black">
+      →
+    </span>
+  </button>
+</div>
 </section>
       
     </div>
