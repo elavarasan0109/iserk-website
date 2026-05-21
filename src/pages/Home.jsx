@@ -900,8 +900,7 @@ useEffect(() => {
     ))}
   </div>
 </div>
-</div>
-</section>
+</div></section>
 
 {/* FAQ SECTION */}
 <section className="w-full bg-[#f7f3ef] px-6 py-24">
