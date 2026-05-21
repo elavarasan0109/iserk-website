@@ -8,6 +8,7 @@ import Accessories from './pages/Accessories.jsx'
 import ProductDetails from './pages/ProductDetails.jsx'
 import PrebuildDetails from './pages/PrebuildDetails.jsx'
 import About from './pages/About.jsx'
+import Faq from "./pages/Faq";
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -35,6 +36,7 @@ function App() {
           />
 
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </main>
 
