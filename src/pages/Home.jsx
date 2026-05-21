@@ -61,6 +61,12 @@ function Home() {
                   </span>
                 </a>
                 <a
+                  href="/about"
+                  className="inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/10 px-8 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:border-orange-400/60 hover:bg-slate-900"
+                >
+                  About Us
+                </a>
+                <a
                   href="#priority"
                   className="inline-flex items-center justify-center gap-3 rounded-full border border-orange-500/40 bg-slate-900/70 px-8 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:border-orange-400/60"
                 >

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const navLinks = [
   { label: "Prebuild", to: "/prebuild" },
   { label: "Accessories", to: "/accessories" },
-  { label: "About", to: "/#about" },
-  { label: "My Configurations", to: "/#configurations" },
-  { label: "Gallery", to: "/#gallery" },
+  { label: "About", to: "/about" },
+  { label: "My Configurations", to: "/configurations" },
+  { label: "Gallery", to: "/gallery" },
 ];
 
 export default function Navbar() {

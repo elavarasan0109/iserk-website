@@ -1,11 +1,13 @@
 // src/components/FilterSidebar.jsx
 import { Monitor, Mouse, Keyboard, Headphones, ArrowRight } from 'lucide-react'
-import { CATEGORIES, MAX_BUDGET } from '../data/products.js'
+import { CATEGORIES } from '../data/products.js'
+
+const MAX_BUDGET = 50000
 
 const ICON_MAP = {
-  Monitor:    <Monitor  size={18} strokeWidth={1.8} />,
-  Mouse:      <Mouse    size={18} strokeWidth={1.8} />,
-  Keyboard:   <Keyboard size={18} strokeWidth={1.8} />,
+  Monitor:    <Monitor    size={18} strokeWidth={1.8} />,
+  Mouse:      <Mouse      size={18} strokeWidth={1.8} />,
+  Keyboard:   <Keyboard   size={18} strokeWidth={1.8} />,
   Headphones: <Headphones size={18} strokeWidth={1.8} />,
 }
 
@@ -17,42 +19,41 @@ export default function FilterSidebar({
   onDone,
 }) {
   return (
-    <aside className="w-full bg-white rounded-2xl border border-brand-gray-mid p-5 flex flex-col gap-5">
+    <aside className="w-full bg-white rounded-2xl border border-gray-200 p-5 flex flex-col gap-5">
+
       {/* Title */}
-      <h3 className="font-sans font-700 text-[17px] text-brand-black">
-        Filter By
-      </h3>
+      <h3 className="font-bold text-[17px] text-gray-900">Filter By</h3>
 
       {/* Category */}
       <div className="flex flex-col gap-2">
-        <p className="font-sans font-600 text-[13px] text-brand-text-muted uppercase tracking-wider mb-1">
+        <p className="font-semibold text-[12px] text-gray-400 uppercase tracking-wider mb-1">
           Category
         </p>
-
         {CATEGORIES.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => onCategoryChange(cat.id === selectedCategory ? null : cat.id)}
-            className={`w-full rounded-[2rem] border px-4 py-4 text-left text-sm font-semibold transition ${
+            type="button"
+            onClick={() =>
+              onCategoryChange(cat.id === selectedCategory ? null : cat.id)
+            }
+            className={`flex items-center gap-3 w-full font-medium text-[15px] bg-white border rounded-xl px-4 py-3 transition-all duration-200 cursor-pointer ${
               selectedCategory === cat.id
-                ? 'border-orange-400 bg-orange-50 text-slate-900'
-                : 'border-slate-200 bg-slate-50 text-slate-900 hover:border-orange-300 hover:bg-orange-50/70'
-            } flex items-center gap-3`}
+                ? 'border-orange-500 text-orange-500 bg-orange-50'
+                : 'border-gray-200 text-gray-800 hover:border-orange-400 hover:text-orange-500'
+            }`}
           >
-            <span className="flex-shrink-0 text-slate-700">{ICON_MAP[cat.icon]}</span>
+            <span className="flex-shrink-0">{ICON_MAP[cat.icon]}</span>
             <span>{cat.label}</span>
           </button>
         ))}
       </div>
 
       {/* Divider */}
-      <div className="border-t border-brand-gray-mid" />
+      <div className="border-t border-gray-100" />
 
       {/* Budget */}
       <div className="flex flex-col gap-3">
-        <p className="font-sans font-700 text-[15px] text-brand-black">
-          Budget
-        </p>
+        <p className="font-bold text-[15px] text-gray-900">Budget</p>
 
         {/* Slider */}
         <input
@@ -62,31 +63,34 @@ export default function FilterSidebar({
           step={500}
           value={budget}
           onChange={(e) => onBudgetChange(Number(e.target.value))}
-          className="w-full accent-brand-black"
+          className="w-full"
         />
 
-        {/* Labels */}
+        {/* 3 labels */}
         <div className="flex items-center justify-between">
-          <span className="font-sans text-[13px] text-brand-text-muted">₹0</span>
-          <span className="font-sans font-600 text-[13px] text-brand-black">
-            ₹{budget.toLocaleString('en-IN')}
-          </span>
-          <span className="font-sans text-[13px] text-brand-text-muted">
-            ₹{MAX_BUDGET.toLocaleString('en-IN')}
-          </span>
+          <span className="font-medium text-[12px] text-gray-500">₹0</span>
+          <span className="font-medium text-[12px] text-gray-500">₹25,000</span>
+          <span className="font-medium text-[12px] text-gray-500">₹50,000</span>
         </div>
+
+        {/* Live value */}
+        <p className="text-center text-[13px] text-orange-500 font-semibold">
+          Up to ₹{budget.toLocaleString('en-IN')}
+        </p>
       </div>
 
       {/* Done button */}
       <button
+        type="button"
         onClick={onDone}
-        className="mt-1 inline-flex w-full items-center justify-between rounded-full bg-orange-500 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-400"
+        className="flex items-center justify-between w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-[15px] rounded-full px-5 py-3 transition-colors mt-1"
       >
-        <span>Done</span>
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10">
+        <span>DONE</span>
+        <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
           <ArrowRight size={15} strokeWidth={2.5} />
         </span>
       </button>
+
     </aside>
   )
 }
