@@ -1,7 +1,8 @@
 // src/pages/ProductDetails.jsx
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { ShoppingCart, ChevronRight } from 'lucide-react'
+import { useCart } from '../context/CartContext'
 import { PRODUCTS } from '../data/products.js'
 
 export default function ProductDetails() {
@@ -9,6 +10,17 @@ export default function ProductDetails() {
   const product = PRODUCTS.find((item) => item.id === Number(id))
   const [selectedColor, setSelectedColor] = useState(0)
   const [imgError, setImgError] = useState(false)
+  const { addToCart } = useCart()
+  const navigate = useNavigate()
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      color: ['BLACK 2K 180HZ', 'WHITE 2K 165HZ'][selectedColor],
+      quantity: 1,
+    })
+    navigate('/cart')
+  }
 
   if (!product) {
     return (
@@ -18,10 +30,8 @@ export default function ProductDetails() {
     )
   }
 
-  // Mock color variants
   const colors = ['BLACK 2K 180HZ', 'WHITE 2K 165HZ']
 
-  // Mock spec description
   const specDesc = `${product.name} — SS IPS Display, 180Hz, 2560 x 1440 (QHD), 1ms (MPRT) Response Time, 100% sRGB, HDR Ready, Flicker-Free, Black`
 
   return (
@@ -36,7 +46,7 @@ export default function ProductDetails() {
         </nav>
 
         <h1 className="text-[32px] font-extrabold text-gray-900 leading-tight">
-          Accessories
+          {product.name}
         </h1>
 
         {/* Main card */}
@@ -94,7 +104,10 @@ export default function ProductDetails() {
             </div>
 
             {/* Add to cart */}
-            <button className="flex items-center justify-between bg-orange-500 hover:bg-orange-600 text-white font-bold text-[15px] rounded-full px-6 py-4 transition-colors w-full sm:w-auto sm:max-w-xs">
+            <button
+              onClick={handleAddToCart}
+              className="flex items-center justify-between bg-orange-500 hover:bg-orange-600 text-white font-bold text-[15px] rounded-full px-6 py-4 transition-colors w-full sm:w-auto sm:max-w-xs"
+            >
               <span className="flex items-center gap-2">
                 <ShoppingCart size={18} strokeWidth={2} />
                 Add To Cart

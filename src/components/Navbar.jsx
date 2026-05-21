@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const navLinks = [
   { label: "Prebuild", to: "/prebuild" },
@@ -11,6 +12,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { getCartCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md text-white shadow-xl shadow-slate-950/20">
@@ -41,13 +43,18 @@ export default function Navbar() {
             Build Now
           </button>
 
-          <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-white transition hover:bg-slate-800 md:h-12 md:w-12">
+          <Link to="/cart" className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-white transition hover:bg-slate-800 md:h-12 md:w-12">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
               <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M7 13L5 21h14l-2-8" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M9 18a1 1 0 100 2 1 1 0 000-2zm8 0a1 1 0 100 2 1 1 0 000-2z" fill="currentColor" />
             </svg>
-          </button>
+            {getCartCount() > 0 && (
+              <span className="absolute -top-1 -right-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
+                {getCartCount()}
+              </span>
+            )}
+          </Link>
 
           <button className="hidden h-11 w-11 overflow-hidden rounded-full border border-white/10 bg-slate-900 md:inline-flex">
             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=128&h=128&q=80" alt="Profile" className="h-full w-full object-cover" />

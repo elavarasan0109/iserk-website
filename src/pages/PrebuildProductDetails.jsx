@@ -1,5 +1,6 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCart } from "../context/CartContext";
 import products from "../data/Product";
 
 export default function PrebuildProductDetails() {
@@ -7,6 +8,8 @@ export default function PrebuildProductDetails() {
   const [error, setError] = useState(null);
 
   const product = products.find((item) => item.id === Number(id));
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     // helpful debug log if product lookup fails in the browser console
@@ -18,6 +21,13 @@ export default function PrebuildProductDetails() {
       console.log("PrebuildProductDetails loaded", { id, product });
     }
   }, [id, product]);
+
+  const handleAddToCart = () => {
+    if (!product) return
+    addToCart({ ...product, quantity: 1 })
+    alert('Added to cart')
+    navigate('/cart')
+  }
 
   const fallbackImage = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80";
 
@@ -63,7 +73,7 @@ export default function PrebuildProductDetails() {
 
               <div className="mt-8 flex gap-4">
                 <Link to="/prebuild" className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-white/20">Back</Link>
-                <button className="bg-orange-500 text-white px-6 py-3 rounded-full">Add To Cart</button>
+                <button onClick={handleAddToCart} className="bg-orange-500 text-white px-6 py-3 rounded-full">Add To Cart</button>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+// src/App.jsx
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -8,38 +9,39 @@ import Accessories from './pages/Accessories.jsx'
 import ProductDetails from './pages/ProductDetails.jsx'
 import PrebuildDetails from './pages/PrebuildDetails.jsx'
 import About from './pages/About.jsx'
+import Cart from './pages/Cart.jsx'
+import Payment from './pages/Payment.jsx'
 
 import { Routes, Route } from 'react-router-dom'
+import { CartProvider } from './context/CartContext'
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <ScrollToTop />
-      <Navbar />
+    <CartProvider>
+      <div className="flex flex-col min-h-screen">
+        <ScrollToTop />
+        <Navbar />
 
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          
-          <Route path="/prebuild" element={<Prebuild />} />
-          <Route
-            path="/prebuild-product/:id"
-            element={<PrebuildDetails />}
-          />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/accessories" element={<Accessories />} />
+            <Route path="/prebuild" element={<Prebuild />} />
+            <Route path="/prebuild-product/:id" element={<PrebuildDetails />} />
 
-          <Route
-            path="/product/:id"
-            element={<ProductDetails />}
-          />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
 
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
+            <Route path="/about" element={<About />} />
 
-      <Footer />
-    </div>
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/payment" element={<Payment />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </CartProvider>
   )
 }
 
