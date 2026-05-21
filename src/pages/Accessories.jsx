@@ -125,8 +125,9 @@ export default function Accessories() {
             Accessories
           </h1>
 
+          {/* Right Controls: Search & Sort info */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            {/* Search */}
+            {/* Search bar */}
             <div className="relative">
               <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                 <Search size={16} strokeWidth={2} />
@@ -136,13 +137,12 @@ export default function Accessories() {
                 value={search}
                 onChange={(e) => handleSearch(e.target.value)}
                 placeholder="Search here..."
-                className="w-full text-[14px] text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-full pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-orange-400/30 focus:border-orange-400 transition-all"
-                style={{ minWidth: 260 }}
+                className="w-full min-w-[260px] rounded-full border border-gray-200 bg-white py-3 pl-12 pr-4 text-sm text-gray-900 shadow-sm outline-none transition focus:border-orange-400 focus:ring-4 focus:ring-orange-100"
               />
             </div>
 
-            {/* Sort + count */}
-            <div className="flex items-center gap-3">
+            {/* Sort + page count */}
+            <div className="flex items-center gap-3 flex-shrink-0">
               <div className="relative">
                 <button
                   onClick={() => setSortOpen((v) => !v)}
@@ -150,10 +150,10 @@ export default function Accessories() {
                 >
                   <span className="text-gray-400">Sort by price:</span>
                   <span className="font-semibold">{currentSortLabel}</span>
-                  <ChevronDown
-                    size={14}
-                    strokeWidth={2.5}
-                    className={`transition-transform ${sortOpen ? 'rotate-180' : ''}`}
+                  <ChevronDown 
+                    size={15} 
+                    strokeWidth={2.5} 
+                    className={`transition-transform ${sortOpen ? 'rotate-180' : ''}`} 
                   />
                 </button>
 
@@ -186,9 +186,9 @@ export default function Accessories() {
         {/* Banner */}
         <Banner />
 
-        {/* Filter + Grid */}
+        {/* Filter Layout + Product Grid */}
         <div className="flex flex-col lg:flex-row gap-6 items-start">
-
+          
           {/* Sidebar */}
           <div className="w-full lg:w-[280px] flex-shrink-0">
             <FilterSidebar
@@ -200,8 +200,8 @@ export default function Accessories() {
             />
           </div>
 
-          {/* Product grid */}
-          <div className="flex-1 flex flex-col gap-6">
+          {/* Product grid container */}
+          <div className="flex-1 flex flex-col gap-6 w-full">
             {paginated.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                 {paginated.map((product) => (
@@ -217,7 +217,7 @@ export default function Accessories() {
               </div>
             )}
 
-            {/* Pagination */}
+            {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex items-center justify-between pt-2">
                 <button
@@ -257,6 +257,7 @@ export default function Accessories() {
         </div>
       </div>
 
+      {/* Overlay for closing Sort Dropdown */}
       {sortOpen && (
         <div className="fixed inset-0 z-30" onClick={() => setSortOpen(false)} />
       )}
