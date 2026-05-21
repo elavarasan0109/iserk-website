@@ -2,12 +2,19 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ShoppingCart, ChevronRight, Cpu, Monitor, HardDrive, MemoryStick, Wind, Package, Zap, Shield } from 'lucide-react'
+import { useCart } from '../context/CartContext'
 import products from '../data/Product.js'
 
 export default function PrebuildDetails() {
   const { id } = useParams()
   const product = products.find((item) => item.id === Number(id))
   const [imgError, setImgError] = useState(false)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity: 1 })
+    alert('Added to cart')
+  }
 
   if (!product) {
     return (
@@ -108,7 +115,7 @@ export default function PrebuildDetails() {
             )}
 
             {/* Add to cart */}
-            <button className="flex items-center justify-between bg-orange-500 hover:bg-orange-600 text-white font-bold text-[15px] rounded-full px-6 py-4 transition-colors w-full sm:w-auto sm:max-w-xs mt-auto">
+            <button onClick={handleAddToCart} className="flex items-center justify-between bg-orange-500 hover:bg-orange-600 text-white font-bold text-[15px] rounded-full px-6 py-4 transition-colors w-full sm:w-auto sm:max-w-xs mt-auto">
               <span className="flex items-center gap-2">
                 <ShoppingCart size={18} strokeWidth={2} />
                 Add To Cart
