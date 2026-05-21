@@ -9,12 +9,10 @@ import Accessories from './pages/Accessories.jsx'
 import ProductDetails from './pages/ProductDetails.jsx'
 import PrebuildDetails from './pages/PrebuildDetails.jsx'
 import About from './pages/About.jsx'
-<<<<<<< HEAD
-import Faq from "./pages/Faq";
-=======
 import Cart from './pages/Cart.jsx'
 import Payment from './pages/Payment.jsx'
->>>>>>> ce2f036c01f3a6b44a0b7bf31b26605ce25f02ae
+import Faq from './pages/Faq'
+import Login from "./pages/Login.jsx";
 
 import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
@@ -31,17 +29,17 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/prebuild" element={<Prebuild />} />
-            <Route path="/prebuild-product/:id" element={<PrebuildDetails />} />
+            <Route
+              path="/prebuild-product/:id"
+              element={<PrebuildDetails />}
+            />
 
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/product/:id" element={<ProductDetails />} />
 
-          <Route path="/about" element={<About />} />
-          <Route path="/faq" element={<Faq />} />
-        </Routes>
-      </main>
             <Route path="/about" element={<About />} />
-
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/cart/payment" element={<Payment />} />
           </Routes>
