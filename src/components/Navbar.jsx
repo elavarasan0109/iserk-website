@@ -19,10 +19,10 @@ export default function Navbar() {
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-xl font-bold text-white shadow-lg shadow-orange-500/20">
-            N
+            I
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white">NUKEPC</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white">ISERK PC</p>
           </div>
         </Link>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <button className="hidden rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-orange-400 md:inline-flex">
-            Build Now
+            LOG in
           </button>
 
           <Link to="/cart" className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-white transition hover:bg-slate-800 md:h-12 md:w-12">

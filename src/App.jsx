@@ -12,6 +12,7 @@ import About from './pages/About.jsx'
 import Cart from './pages/Cart.jsx'
 import Payment from './pages/Payment.jsx'
 import Faq from './pages/Faq'
+import Gallery from './pages/Gallery.jsx'
 
 import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
@@ -37,6 +38,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
 
             <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/faq" element={<Faq />} />
 
             <Route path="/cart" element={<Cart />} />
