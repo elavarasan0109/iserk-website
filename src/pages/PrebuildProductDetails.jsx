@@ -1,23 +1,19 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import products from "../data/Product";
 
 export default function PrebuildProductDetails() {
   const { id } = useParams();
-  const [error, setError] = useState(null);
-
   const product = products.find((item) => item.id === Number(id));
+  const error = !product ? "Product not found" : null;
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
   useEffect(() => {
-    // helpful debug log if product lookup fails in the browser console
     if (!product) {
       console.warn("PrebuildProductDetails: product not found for id", id);
-      setError("Product not found");
     } else {
-      setError(null);
       console.log("PrebuildProductDetails loaded", { id, product });
     }
   }, [id, product]);
@@ -25,7 +21,6 @@ export default function PrebuildProductDetails() {
   const handleAddToCart = () => {
     if (!product) return
     addToCart({ ...product, quantity: 1 })
-    alert('Added to cart')
     navigate('/cart')
   }
 
@@ -45,9 +40,7 @@ export default function PrebuildProductDetails() {
     );
   }
 
-  // defensive render to avoid runtime crash if some field is undefined
-  try {
-    return (
+  return (
       <div className="bg-white min-h-screen">
         <div className="px-6 py-12 max-w-7xl mx-auto">
           <h2 className="mb-6 text-3xl font-bold text-slate-900">Prebuild Product Details</h2>
@@ -80,18 +73,4 @@ export default function PrebuildProductDetails() {
         </div>
       </div>
     );
-  } catch (err) {
-    console.error("PrebuildProductDetails render error", err);
-    return (
-      <div className="bg-white min-h-screen px-6 py-16">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-slate-50 p-10 text-center shadow-sm">
-          <p className="text-xl font-semibold text-slate-950">Something went wrong</p>
-          <p className="mt-3 text-slate-600">Check the browser console for details.</p>
-          <Link to="/prebuild" className="mt-8 inline-flex rounded-full bg-orange-500 px-6 py-3 text-white transition hover:bg-orange-400">
-            Back to Prebuild
-          </Link>
-        </div>
-      </div>
-    );
-  }
 }
