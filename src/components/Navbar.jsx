@@ -39,9 +39,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="hidden rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-orange-400 md:inline-flex">
-            Build Now
-          </button>
+          <Link
+  to="/login"
+  className="flex w-full items-center justify-center rounded-full bg-orange-500 px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-orange-400"
+>
+  LOG IN
+</Link>
 
           <Link to="/cart" className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-white transition hover:bg-slate-800 md:h-12 md:w-12">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">

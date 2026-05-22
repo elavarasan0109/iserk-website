@@ -1,4 +1,3 @@
-// src/App.jsx
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -14,38 +13,84 @@ import Payment from './pages/Payment.jsx'
 import Faq from './pages/Faq'
 import Login from "./pages/Login.jsx";
 
-import { Routes, Route } from 'react-router-dom'
+import {
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom'
+
 import { CartProvider } from './context/CartContext'
 
 function App() {
+
+  const location = useLocation()
+
+  const hideLayout =
+    location.pathname === "/login"
+
   return (
     <CartProvider>
       <div className="flex flex-col min-h-screen">
+
         <ScrollToTop />
-        <Navbar />
+
+        {!hideLayout && <Navbar />}
 
         <main className="flex-grow">
           <Routes>
+
             <Route path="/" element={<Home />} />
 
-            <Route path="/prebuild" element={<Prebuild />} />
+            <Route
+              path="/prebuild"
+              element={<Prebuild />}
+            />
+
             <Route
               path="/prebuild-product/:id"
               element={<PrebuildDetails />}
             />
 
-            <Route path="/accessories" element={<Accessories />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route
+              path="/accessories"
+              element={<Accessories />}
+            />
 
-            <Route path="/about" element={<About />} />
-            <Route path="/faq" element={<Faq />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/cart/payment" element={<Payment />} />
+            <Route
+              path="/product/:id"
+              element={<ProductDetails />}
+            />
+
+            <Route
+              path="/about"
+              element={<About />}
+            />
+
+            <Route
+              path="/faq"
+              element={<Faq />}
+            />
+
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+
+            <Route
+              path="/cart"
+              element={<Cart />}
+            />
+
+            <Route
+              path="/cart/payment"
+              element={<Payment />}
+            />
+
           </Routes>
         </main>
 
-        <Footer />
+        {!hideLayout && <Footer />}
+
       </div>
     </CartProvider>
   )
