@@ -29,3 +29,16 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.clip-path-logo {
+  clip-path: polygon(
+    0 0,
+    45% 0,
+    45% 100%,
+    0 70%
+  );
+}
