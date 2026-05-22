@@ -13,6 +13,7 @@ import Payment from './pages/Payment.jsx'
 import Faq from './pages/Faq'
 import Gallery from './pages/Gallery.jsx'
 import Login from "./pages/Login.jsx";
+import MyConfigurations from "./pages/MyConfigurations.jsx";
 
 import {
   Routes,
@@ -75,6 +76,11 @@ function App() {
             <Route
               path="/faq"
               element={<Faq />}
+            />
+
+            <Route
+              path="/configurations"
+              element={<MyConfigurations />}
             />
 
             <Route

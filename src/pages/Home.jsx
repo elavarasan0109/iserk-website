@@ -338,7 +338,7 @@ useEffect(() => {
             <div className="mb-16 flex justify-center">
 
               <div className="rounded-full border border-red-500/40 bg-red-500/10 px-6 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-red-500">
-                ● Exclusively Available at NukePC
+                ● Exclusively Available at ISERK PC
               </div>
             </div>
 
@@ -376,7 +376,7 @@ useEffect(() => {
 
                   <button className="rounded-full border border-white/10 bg-[#111111] px-7 py-4 text-sm text-white transition hover:border-red-500">
                     <span className="mr-2 text-green-400">●</span>
-                    Now Available at NukePC
+                    Now Available at ISERK PC
                   </button>
 
                   <button className="rounded-full bg-red-600 px-10 py-4 text-sm font-semibold text-white transition hover:bg-red-700">

@@ -18,9 +18,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md text-white shadow-xl shadow-slate-950/20">
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight text-white">ISERK PC</span>
-          </div>
+          <img src="/LogoIserk.png" alt="ISERK PC" className="h-12 w-auto" />
         </Link>
         <div className="hidden md:flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-3 py-2 shadow-inner shadow-black/10">
           {navLinks.map((link) => (
