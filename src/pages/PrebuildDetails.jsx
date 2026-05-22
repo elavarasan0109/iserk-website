@@ -1,19 +1,20 @@
 // src/pages/PrebuildDetails.jsx
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { ShoppingCart, ChevronRight, Cpu, Monitor, HardDrive, MemoryStick, Wind, Package, Zap, Shield } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import products from '../data/Product.js'
 
 export default function PrebuildDetails() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const product = products.find((item) => item.id === Number(id))
   const [imgError, setImgError] = useState(false)
   const { addToCart } = useCart()
 
   const handleAddToCart = () => {
     addToCart({ ...product, quantity: 1 })
-    alert('Added to cart')
+    navigate('/cart')
   }
 
   if (!product) {

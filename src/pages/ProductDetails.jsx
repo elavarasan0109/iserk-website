@@ -14,13 +14,13 @@ export default function ProductDetails() {
   const navigate = useNavigate()
 
   const handleAddToCart = () => {
-    addToCart({
-      ...product,
-      color: ['BLACK 2K 180HZ', 'WHITE 2K 165HZ'][selectedColor],
-      quantity: 1,
-    })
-    navigate('/cart')
-  }
+  addToCart({
+    ...product,
+    color: ['BLACK 2K 180HZ', 'WHITE 2K 165HZ'][selectedColor],
+    quantity: 1,
+  })
+  navigate('/cart')
+}
 
   if (!product) {
     return (
