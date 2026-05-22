@@ -5,10 +5,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.75fr_1.1fr]">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-2xl font-bold text-white">
-                N
-              </div>
-              <p className="text-2xl font-semibold tracking-tight">NUKEPC</p>
+              <img src="/LogoIserk.png" alt="ISERK PC" className="h-10 w-auto" />
             </div>
             <p className="max-w-xl text-base leading-8 text-slate-900">
               Hassle-free computing experience with precision-built PCs designed just for you. We deeply consider a PC is an investment to POWER YOUR JOURNEY.
@@ -41,7 +38,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-500">For Support</p>
-                  <p className="mt-1 text-sm font-semibold text-slate-950">support@nukepc.in</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-950">support@iserkpc.in</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 rounded-[1.75rem] bg-white px-5 py-4 shadow-sm">
@@ -53,7 +50,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-500">For Sales</p>
-                  <p className="mt-1 text-sm font-semibold text-slate-950">enquiry@nukepc.in</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-950">enquiry@iserkpc.in</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 rounded-[1.75rem] bg-white px-5 py-4 shadow-sm">
@@ -84,12 +81,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-slate-300 pt-8 sm:flex sm:items-center sm:justify-between">
-          <div className="flex items-center justify-center gap-4 text-slate-500 sm:justify-start">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-700">IG</span>
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-700">YT</span>
+        <div className="mt-14 border-t border-slate-300 pt-8 flex flex-col items-center gap-4 text-slate-500">
+          <div className="flex items-center justify-center gap-4">
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-700 shadow-sm transition hover:bg-slate-300">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5z" />
+                <path d="M12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5zm5.5-.88a1.12 1.12 0 1 1 0 2.24 1.12 1.12 0 0 1 0-2.24z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer noopener" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-700 shadow-sm transition hover:bg-slate-300">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M10 15.5l5.5-3.25L10 9V15.5z" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M21.4 6.44a3.05 3.05 0 0 0-2.15-2.16C17.6 3.75 12 3.75 12 3.75s-5.6 0-7.25.53A3.05 3.05 0 0 0 2.6 6.44 32.6 32.6 0 0 0 2 12a32.6 32.6 0 0 0 .6 5.56 3.05 3.05 0 0 0 2.15 2.16c1.65.53 7.25.53 7.25.53s5.6 0 7.25-.53a3.05 3.05 0 0 0 2.15-2.16A32.6 32.6 0 0 0 22 12a32.6 32.6 0 0 0-.6-5.56zm-1.35 9.61a1.55 1.55 0 0 1-1.1 1.1c-.78.25-3.33.49-6.95.49s-6.17-.24-6.95-.49a1.55 1.55 0 0 1-1.1-1.1 16.6 16.6 0 0 1-.46-4.05c0-1.44.16-2.86.46-4.05.22-.67.83-1.18 1.5-1.36.92-.26 3.94-.43 6.55-.43s5.63.17 6.55.43c.67.18 1.28.69 1.5 1.36.3 1.19.46 2.6.46 4.05 0 1.45-.16 2.86-.46 4.05z" />
+              </svg>
+            </a>
           </div>
-          <p className="mt-4 text-sm text-slate-500 sm:mt-0">© 2026 Nuke Technologies Private Limited. All Rights Reserved</p>
+          <p className="text-sm text-slate-500">© 2026 ISERK Technologies Private Limited. All Rights Reserved</p>
         </div>
       </div>
     </footer>
